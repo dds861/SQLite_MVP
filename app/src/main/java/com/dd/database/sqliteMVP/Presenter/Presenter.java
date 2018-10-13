@@ -18,9 +18,9 @@ public class Presenter implements IPresenter {
     }
 
     @Override
-    public void setCategories() {
+    public void setDataToListview() {
 
-        List<String> list = iModel.getList();
+        List<String> list = iModel.getListFromDatabase();
 
         //deleting emtry cells
         List<String> stringList = new ArrayList<>();
@@ -31,7 +31,7 @@ public class Presenter implements IPresenter {
         }
 
         //setting data to list in view
-        iView.setCategoriesToList(stringList);
+        iView.setDataToListview(stringList);
 
     }
 }

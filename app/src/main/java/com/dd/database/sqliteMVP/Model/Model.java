@@ -3,7 +3,6 @@ package com.dd.database.sqliteMVP.Model;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
 
 import com.dd.database.sqliteMVP.View.DatabaseOpenHelper;
 import com.dd.database.sqliteMVP.View.IView;
@@ -19,7 +18,7 @@ public class Model implements IModel {
     }
 
     @Override
-    public List<String> getList() {
+    public List<String> getListFromDatabase() {
 
         List<String> list = new ArrayList<>();
         String sqlQueryText = "SELECT adam, til FROM makal";

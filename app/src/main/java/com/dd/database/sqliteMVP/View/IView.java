@@ -4,8 +4,5 @@ import java.util.List;
 
 public interface IView {
 
-    DatabaseOpenHelper getDatabaseOpenHelper();
-
-    void setCategoriesToList(List<String> categoriesToList);
-
+    void setDataToListview(List<String> categoriesToList);
 }

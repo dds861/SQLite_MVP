@@ -25,7 +25,7 @@ public class View extends AppCompatActivity implements IView {
         initView();
 
         iPresenter = new Presenter(this);
-        iPresenter.setCategories();
+        iPresenter.setDataToListview();
 
         mListview1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -39,14 +39,11 @@ public class View extends AppCompatActivity implements IView {
         mListview1 = (ListView) findViewById(R.id.listview1);
     }
 
-    @Override
-    public DatabaseOpenHelper getDatabaseOpenHelper() {
-        return new DatabaseOpenHelper(getApplicationContext());
-    }
+
 
 
     @Override
-    public void setCategoriesToList(List<String> stringList) {
+    public void setDataToListview(List<String> stringList) {
         ArrayAdapter arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, stringList);
         mListview1.setAdapter(arrayAdapter);
     }
