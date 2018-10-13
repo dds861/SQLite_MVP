@@ -2,10 +2,8 @@ package com.dd.database.sqliteMVP.View;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.dd.database.sqliteMVP.Presenter.IPresenter;
 import com.dd.database.sqliteMVP.Presenter.Presenter;
@@ -26,21 +24,11 @@ public class View extends AppCompatActivity implements IView {
 
         iPresenter = new Presenter(this);
         iPresenter.setDataToListview();
-
-        mListview1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, android.view.View view, int position, long id) {
-                Toast.makeText(View.this, "Was clicked " + position, Toast.LENGTH_SHORT).show();
-            }
-        });
     }
 
     private void initView() {
         mListview1 = (ListView) findViewById(R.id.listview1);
     }
-
-
-
 
     @Override
     public void setDataToListview(List<String> stringList) {

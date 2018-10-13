@@ -4,7 +4,6 @@ import com.dd.database.sqliteMVP.Model.IModel;
 import com.dd.database.sqliteMVP.Model.Model;
 import com.dd.database.sqliteMVP.View.IView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Presenter implements IPresenter {
@@ -19,19 +18,7 @@ public class Presenter implements IPresenter {
 
     @Override
     public void setDataToListview() {
-
         List<String> list = iModel.getListFromDatabase();
-
-        //deleting emtry cells
-        List<String> stringList = new ArrayList<>();
-        for (String s : list) {
-            if (!s.isEmpty()) {
-                stringList.add(s);
-            }
-        }
-
-        //setting data to list in view
-        iView.setDataToListview(stringList);
-
+        iView.setDataToListview(list);
     }
 }
