@@ -2,7 +2,6 @@ package com.dd.database.sqliteMVP.Presenter;
 
 import com.dd.database.sqliteMVP.Model.IModel;
 import com.dd.database.sqliteMVP.Model.Model;
-import com.dd.database.sqliteMVP.View.DatabaseOpenHelper;
 import com.dd.database.sqliteMVP.View.IView;
 
 import java.util.ArrayList;
@@ -15,18 +14,13 @@ public class Presenter implements IPresenter {
 
     public Presenter(IView iView) {
         this.iView = iView;
-        iModel = new Model();
+        iModel = new Model(iView);
     }
 
     @Override
     public void setCategories() {
 
-        DatabaseOpenHelper databaseOpenHelper = iView.getDatabaseOpenHelper();
-
-        iModel.setOpenHelper(databaseOpenHelper);
-        iModel.openDatabase();
-
-        List<String> list = iModel.getList(iModel.getDatabase());
+        List<String> list = iModel.getList();
 
         //deleting emtry cells
         List<String> stringList = new ArrayList<>();
@@ -39,7 +33,5 @@ public class Presenter implements IPresenter {
         //setting data to list in view
         iView.setCategoriesToList(stringList);
 
-
-        iModel.closeDatabase();
     }
 }

@@ -26,6 +26,7 @@ public class View extends AppCompatActivity implements IView {
 
         iPresenter = new Presenter(this);
         iPresenter.setCategories();
+
         mListview1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, android.view.View view, int position, long id) {
@@ -45,8 +46,8 @@ public class View extends AppCompatActivity implements IView {
 
 
     @Override
-    public void setCategoriesToList(List<String> categoriesToList) {
-        ArrayAdapter arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, categoriesToList);
+    public void setCategoriesToList(List<String> stringList) {
+        ArrayAdapter arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, stringList);
         mListview1.setAdapter(arrayAdapter);
     }
 }
