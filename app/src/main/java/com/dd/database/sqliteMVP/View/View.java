@@ -32,7 +32,7 @@ public class View extends AppCompatActivity implements IView {
 
     @Override
     public void setDataToListview(List<String> stringList) {
-        ArrayAdapter arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, stringList);
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, stringList);
         mListview1.setAdapter(arrayAdapter);
     }
 }
